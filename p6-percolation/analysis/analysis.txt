@@ -1,0 +1,62 @@
+Jeffrey Cheng
+jc759
+
+Copy/Paste from running PercolationStats with these grid sizes:
+grid sizes of 100, 200, 400, 800, 1600, and 3200
+and using 20 trials
+
+PercolationDFSFast
+
+simulation data for 20 trials
+grid	mean	stddev	total time
+100	0.593	0.014	0.089
+200	0.591	0.010	0.082
+400	0.590	0.006	0.527
+800	0.594	0.004	3.602
+Exception in thread "main" java.lang.StackOverflowError
+
+PercolationBF
+
+simulation data for 20 trials
+grid	mean	stddev	total time
+100	0.593	0.014	0.071
+200	0.591	0.010	0.094
+400	0.590	0.006	0.517
+800	0.594	0.004	3.661
+1600	0.592	0.002	21.945
+3200	0.593	0.001	131.096
+
+PercolationUF with QuickUWPC
+
+simulation data for 20 trials
+grid	mean	stddev	total time
+100	0.593	0.014	0.060
+200	0.591	0.010	0.091
+400	0.590	0.006	0.447
+800	0.594	0.004	2.584
+1600	0.592	0.002	13.962
+3200	0.593	0.001	73.787
+
+Answer these questions for PercolateUF with a QuickUWPC union-find object
+
+How does doubling the grid size affect running time (keeping # trials fixed)
+
+Doubling grid size affects running time by a linear constant, around 5. This
+conclusion was reached after dividing successive trials by each other. Another
+way I tried to determine this was modeling the data, which I found to be around
+(n^2/14), and thus it makes sense that doubling n would multiply the time by
+around 4.
+
+How does doubling the number of trials affect running time.
+
+Doubling the number of trials approximately doubles running time as well.
+
+Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+
+Using the equation that I determined through modeling and converting 24 hours
+into seconds, I found that the largest grid size that would run in that amount
+of time would be around 50,000. Considering the linear trend from our data, I
+estimated that the largest grid size possible would also be around the same range.
+This, of course, is with a computer capable of handling the number of
+calculations that had to be done. My computer ran into the Java heap space error
+at around 12800 gridsize.

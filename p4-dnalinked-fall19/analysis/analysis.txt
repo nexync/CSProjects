@@ -1,0 +1,98 @@
+Kenneth Marenco and Jeffrey Cheng
+
+Analysis
+
+Question 1: 
+Part 1: are the benchmark timings for StringStrand consistent with the 
+explanation below that the time to execute cutAndSplice is O(b2S)? 
+
+Note that the value of b is half the number of calls to append 
+since each cut (except the first) is modeled by two calls of append 
+in the method cutAndSplice -- see the code. This means that b2 will 
+be constant in the benchmark, but S will vary. 
+
+Answer 1 Part 1:
+
+
+
+What patterns, if any, do you find in the runtimes for StringStrand? In answering this question include some data from the first few runs of the Benchmark program where you use
+
+mySource = mySource + mySource + mySource;
+
+After the call to mySource = dnaFromScanner(...
+
+This will triple the number of breaks which you'll see in the number of calls to append printed by the benchmark program.
+
+
+Results from DNABenchmark using StringStrand on ecoli.txt
+
+dna length = 4,639,221
+cutting at enzyme gaattc
+-----
+Class	                splicee	      recomb	time	appends
+-----
+StringStrand:	            256	      4,800,471	0.384	1290
+StringStrand:	            512	      4,965,591	0.356	1290
+StringStrand:	          1,024	      5,295,831	0.359	1290
+StringStrand:	          2,048	      5,956,311	0.418	1290
+StringStrand:	          4,096	      7,277,271	0.526	1290
+StringStrand:	          8,192	      9,919,191	0.892	1290
+StringStrand:	         16,384	     15,203,031	1.319	1290
+StringStrand:	         32,768	     25,770,711	2.629	1290
+StringStrand:	         65,536	     46,906,071	5.173	1290
+StringStrand:	        131,072	     89,176,791	9.774	1290
+StringStrand:	        262,144	    173,718,231	19.623	1290
+StringStrand:	        524,288	    342,801,111	38.633	1290
+StringStrand:	      1,048,576	    680,966,871	74.557	1290
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/jdk.internal.misc.Unsafe.allocateUninitializedArray(Unsafe.java:1269)
+	at java.base/java.lang.invoke.StringConcatFactory$MethodHandleInlineCopyStrategy.newArray(StringConcatFactory.java:1633)
+	at java.base/java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(DirectMethodHandle$Holder)
+	at java.base/java.lang.invoke.LambdaForm$MH/0x0000000800149840.invoke(LambdaForm$MH)
+	at java.base/java.lang.invoke.Invokers$Holder.linkToTargetMethod(Invokers$Holder)
+	at StringStrand.append(StringStrand.java:70)
+	at IDnaStrand.cutAndSplice(IDnaStrand.java:37)
+	at DNABenchmark.lambda$strandSpliceBenchmark$0(DNABenchmark.java:76)
+	at DNABenchmark$$Lambda$163/0x000000080025f840.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+	at DNABenchmark.strandSpliceBenchmark(DNABenchmark.java:79)
+	at DNABenchmark.main(DNABenchmark.java:112)
+
+Process finished with exit code 1
+
+Results from DNABenchmark using StringBuilderStrand on ecoli.txt
+
+dna length = 4,639,221
+cutting at enzyme gaattc
+-----
+Class	                splicee	      recomb	time	appends
+-----
+StringBuilderStrand:	            256	      4,800,471	0.023	1290
+StringBuilderStrand:	            512	      4,965,591	0.018	1290
+StringBuilderStrand:	          1,024	      5,295,831	0.007	1290
+StringBuilderStrand:	          2,048	      5,956,311	0.007	1290
+StringBuilderStrand:	          4,096	      7,277,271	0.008	1290
+StringBuilderStrand:	          8,192	      9,919,191	0.009	1290
+StringBuilderStrand:	         16,384	     15,203,031	0.011	1290
+StringBuilderStrand:	         32,768	     25,770,711	0.022	1290
+StringBuilderStrand:	         65,536	     46,906,071	0.029	1290
+StringBuilderStrand:	        131,072	     89,176,791	0.077	1290
+StringBuilderStrand:	        262,144	    173,718,231	0.101	1290
+StringBuilderStrand:	        524,288	    342,801,111	0.255	1290
+StringBuilderStrand:	      1,048,576	    680,966,871	0.415	1290
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3745)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:172)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:538)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:174)
+	at StringBuilderStrand.append(StringBuilderStrand.java:70)
+	at IDnaStrand.cutAndSplice(IDnaStrand.java:41)
+	at DNABenchmark.strandSpliceBenchmark(DNABenchmark.java:67)
+	at DNABenchmark.main(DNABenchmark.java:112)
+
+Process finished with exit code 1
+
+
+
+
+

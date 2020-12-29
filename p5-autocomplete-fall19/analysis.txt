@@ -1,0 +1,152 @@
+Run the program BenchmarkForAutocomplete and copy/paste the results into the
+analysis.txt file in the appropriate location. You'll need to run three times,
+once for each of the files in the Benchmark program: threeletterwords.txt,
+fourletterwords.txt, and alexa.txt. On ola's computer the first few lines are
+What's shown below for "data/threeletterwords.txt". The unlabeled "search" is
+for an empty string "" which matches every string stored. These numbers are
+for a file of every three letter word "aaa, "aab", … "zzy", "zzz", not
+actual words, but 3-character strings.
+
+3letterwords
+
+init time: 0.01208	for BruteAutocomplete
+init time: 0.006197	for BinarySearchAutocomplete
+init time: 0.1361	for HashListAutocomplete
+init time: 0.006753	for SlowBruteAutocomplete
+search	size	#match	BruteAutoc	BinarySear	HashListAu	SlowBruteA
+	      17576	50	0.00335510	0.00513220	0.00029230	0.04044870
+	      17576	50	0.00072530	0.00446710	0.00001210	0.01098140
+a	      676	  50 	0.00041640	0.00028740	0.00000880	0.00139010
+a	      676	  50 	0.00061700	0.00037560	0.00001170	0.00229410
+b	      676	  50	0.00044680	0.00020510	0.00000830	0.00068810
+c	      676	  50	0.00058780	0.00046040	0.00001130	0.00109060
+g	      676	  50	0.00057090	0.00022540	0.00000950	0.00073410
+ga    	26	  50	0.00060110	0.00013030	0.00001360	0.00046930
+go	    26	  50	0.00045530	0.00014580	0.00001000	0.00044560
+gu	    26	  50	0.00048920	0.00008850	0.00001010	0.00036610
+x	      676	  50	0.00082110	0.00034680	0.00001390	0.00133750
+y      	676	  50	0.00062160	0.00041210	0.00001820	0.00112930
+z	      676	  50	0.00031710	0.00021730	0.00000950	0.00065970
+aa	    26	  50	0.00056000	0.00008140	0.00001000	0.00040480
+az	    26	  50	0.00044930	0.00010110	0.00001610	0.00074530
+za	    26	  50	0.00099300	0.00012720	0.00001840	0.00088400
+zz    	26	  50  0.00024430	0.00005350	0.00000940	0.00038690
+zqzqwwx	0	    50  0.00031210	0.00008550	0.00002470	0.00053400
+size in bytes=246064	 for BruteAutocomplete
+size in bytes=246064	 for BinarySearchAutocomplete
+size in bytes=1092468	 for HashListAutocomplete
+size in bytes=246064	 for SlowBruteAutocomplete
+
+4letterwords
+
+init time: 0.09062	for BruteAutocomplete
+init time: 0.03741	for BinarySearchAutocomplete
+init time: 1.695	for HashListAutocomplete
+init time: 0.08336	for SlowBruteAutocomplete
+search	size	 #match	BruteAutoc	BinarySear	HashListAu	SlowBruteA
+	      456976 50	0.01571340	0.02201130	0.00027720	0.83009140
+	      456976 50	0.00747290	0.00333260	0.00001100	0.49618590
+a	      17576	 50	0.00784340	0.00034530	0.00000980	0.04786550
+a	      17576	 50	0.00702380	0.00045150	0.00001190	0.01531680
+b	      17576	 50	0.00721170	0.00046520	0.00001140	0.01299140
+c	      17576	 50	0.00803300	0.00041500	0.00001100	0.01462430
+g	      17576	 50	0.00694330	0.00030940	0.00001050	0.01311670
+ga    	676	   50	0.00681870	0.00014100	0.00001000	0.00541460
+go	    676	   50	0.00604000	0.00012050	0.00003030	0.00722230
+gu	    676	   50	0.00539390	0.00012890	0.00000870	0.00541980
+x      	17576	 50	0.00730840	0.00053340	0.00001100	0.01442500
+y      	17576	 50	0.00585890	0.00026640	0.00001810	0.01495100
+z	      17576	 50	0.00819220	0.00028480	0.00001130	0.01590310
+aa	    676	   50	0.00663070	0.00008960	0.00000930	0.00556730
+az	    676    50	0.00654250	0.00009460	0.00000930	0.00544000
+za	    676	   50	0.00826970	0.00008990	0.00001070	0.00728710
+zz	    676	   50	0.00898310	0.00008770	0.00001150	0.00667450
+zqzqwwx	0	     50	0.00675170	0.00014450	0.00001150	0.00716600
+size in bytes=7311616	 for BruteAutocomplete
+size in bytes=7311616	 for BinarySearchAutocomplete
+size in bytes=40322100	 for HashListAutocomplete
+size in bytes=7311616	 for SlowBruteAutocomplete
+
+alexa
+
+init time: 0.5099	for BruteAutocomplete
+init time: 2.310	for BinarySearchAutocomplete
+init time: 9.657	for HashListAutocomplete
+init time: 0.3589	for SlowBruteAutocomplete
+search	size	  #match	BruteAutoc	BinarySear	HashListAu	SlowBruteA
+	      1000000	50	0.04006940	0.03120320	0.00029850	0.10079910
+	      1000000	50	0.03536030	0.01328960	0.00001510	0.11713450
+a	      69464	  50	0.02364740	0.00133600	0.00001670	0.07356790
+a	      69464	  50	0.01834350	0.00082370	0.00001240	0.02548370
+b	      56037	  50	0.02009830	0.00081970	0.00001080	0.02202810
+c	      65842	  50	0.02505380	0.00111450	0.00001350	0.03270750
+g	      37792	  50	0.02911370	0.00071890	0.00000990	0.02888830
+ga	    6664	  50	0.02622800	0.00021320	0.00001030	0.02577450
+go	    6953	  50	0.02368850	0.00023600	0.00001070	0.01855440
+gu	    2782	  50	0.02150710	0.00025270	0.00001200	0.02014060
+x	      6717	  50	0.02374790	0.00024170	0.00001260	0.01997110
+y	      16765	  50	0.03121990	0.00051910	0.00002580	0.02966910
+z	      8780	  50	0.02425480	0.00019200	0.00001140	0.02141690
+aa	    718	    50	0.03186750	0.00015320	0.00001410	0.02608200
+az	    889	    50	0.02265760	0.00009670	0.00001110	0.02017040
+za	    1718	  50	0.02064360	0.00011000	0.00001090	0.02121400
+zz	    162	    50	0.02503580	0.00010270	0.00001350	0.01701690
+zqzqwwx	0	      50	0.02519330	0.00013280	0.00000880	0.02265770
+size in bytes=38204230	 for BruteAutocomplete
+size in bytes=38204230	 for BinarySearchAutocomplete
+size in bytes=475893648	 for HashListAutocomplete
+size in bytes=38204230	 for SlowBruteAutocomplete
+
+
+Run the program again for alexa.txt with  #matches = 10000, paste the results,
+and then explain to what extent the # matches affects the runtime. The
+#matches, matchSize, is specified in the method runAM (for run all matches)
+
+init time: 0.5846	for BruteAutocomplete
+init time: 2.052	for BinarySearchAutocomplete
+init time: 9.715	for HashListAutocomplete
+init time: 0.3377	for SlowBruteAutocomplete
+search	size	  #match	BruteAutoc	BinarySear	HashListAu	SlowBruteA
+	      1000000	10000	0.04373020	0.10546380	0.00037560	0.29735570
+	      1000000	10000	0.03568730	0.07435350	0.00001350	0.22568850
+a	      69464	  10000	0.03211030	0.02530100	0.00001550	0.18683270
+a	      69464	  10000	0.03277540	0.02575450	0.00001240	0.13569740
+b	      56037	  10000	0.03022190	0.02393310	0.00001270	0.13642640
+c	      65842	  10000	0.03327520	0.02782350	0.00001540	0.16927300
+g	      37792	  10000	0.03151000	0.01865690	0.00001500	0.13477950
+ga	    6664	  10000	0.02811070	0.00472510	0.00001170	0.05202190
+go	    6953	  10000	0.03005830	0.00515550	0.00001260	0.04990590
+gu	    2782	  10000	0.02647110	0.00191540	0.00001370	0.04220740
+x	      6717	  10000	0.03413610	0.00705890	0.00001400	0.05209320
+y	      16765	  10000	0.03608700	0.01212610	0.00002160	0.15772700
+z	      8780	  10000	0.03078810	0.00646300	0.00001240	0.08735800
+aa	    718	    10000	0.02409360	0.00040950	0.00001090	0.02337020
+az	    889	    10000	0.02763260	0.00052900	0.00001140	0.02453600
+za	    1718	  10000	0.03075980	0.00106120	0.00001140	0.02468590
+zz	    162	    10000	0.02630920	0.00010120	0.00001030	0.02204320
+zqzqwwx	0	      10000	0.02685420	0.00015270	0.00001200	0.02214400
+size in bytes=38204230	 for BruteAutocomplete
+size in bytes=38204230	 for BinarySearchAutocomplete
+size in bytes=475893648	 for HashListAutocomplete
+size in bytes=38204230	 for SlowBruteAutocomplete
+
+Changing the number of matches doesn't affect initialization time nor space
+taken for either of the four different types of autocomplete. However, the time
+taken for BinarySearch and SlowBrute methods all increased for each prefix.
+
+Explain why the last for loop in BruteAutocomplete.topMatches uses a LinkedList
+(and not an ArrayList) AND why the PriorityQueue uses
+Comparator.comparing(Term::getWeight) to get the top k heaviest matches.
+
+We use a LinkedList because adding a term to the start of the list does not
+require shifting all the elements as an ArrayList would have to. Thus, it is
+more efficient in terms of runtime. We use the PriorityQueue comparator to
+get the weights in order to find the elements with the k heaviest weights to
+then add to our final LinkedList.
+
+Explain why HashListAutocomplete uses more memory than the other
+Autocomplete implementations. Be brief.
+
+HashListAutocomplete maps all possible prefixes to maps even if they are not
+used in the end. In contrast, the other methods just find the indices (or take
+all) of the elements that match the prefixes.
